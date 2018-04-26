@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <div>
+    <button
+      (click)="onToggleSidenav()"
+      mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/">Skydive Iowa</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout class="navigation-items" fxLayoutGap="10px">
+      <li><a routerLink="/signup">Signup</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/logout">Logout</a></li>
+    </ul>
+  </div>
+</mat-toolbar>
