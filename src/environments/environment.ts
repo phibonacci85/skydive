@@ -4,5 +4,13 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyAgabcJSxdDDA1iYkIqgMhonalobgKZl0M',
+    authDomain: 'skydive-d9812.firebaseapp.com',
+    databaseURL: 'https://skydive-d9812.firebaseio.com',
+    projectId: 'skydive-d9812',
+    storageBucket: 'skydive-d9812.appspot.com',
+    messagingSenderId: '927387693487',
+  },
 };

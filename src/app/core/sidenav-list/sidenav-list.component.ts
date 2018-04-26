@@ -1,5 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
+import * as fromRoot from '../../app.reducer';
+import * as Core from '../core.actions';
+import { Store } from '@ngrx/store';
+
 @Component({
   selector: 'app-sidenav-list',
   templateUrl: './sidenav-list.component.html',
@@ -8,11 +12,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SidenavListComponent implements OnInit {
   @Output() closeSidenav = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private store: Store<fromRoot.State>) { }
 
   ngOnInit() { }
 
   onCloseSidenav() {
-    this.closeSidenav.emit();
+    this.store.dispatch(new Core.SetSidenavClosed());
   }
 }
