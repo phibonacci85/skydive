@@ -3,6 +3,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
@@ -19,7 +20,14 @@ import { ManifestComponent } from './manifest/manifest.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import {
+  AngularFireAuth,
+  AngularFireAuthModule,
+  AngularFireAuthProvider,
+} from 'angularfire2/auth';
+import { AuthEffects } from './auth/auth.effects';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -44,6 +52,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     StoreModule.forRoot(reducers),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,10 +6,10 @@
     #sidenav
     [opened]="showSidenav$ | async"
     role="navigation">
-    <app-sidenav-list></app-sidenav-list>
+    <app-sidenav-list [authenticated]="authenticated$ | async"></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content fxLayout="column">
-    <app-header></app-header>
+    <app-header [authenticated]="authenticated$ | async"></app-header>
     <main fxFlex="grow">
       <router-outlet></router-outlet>
     </main>

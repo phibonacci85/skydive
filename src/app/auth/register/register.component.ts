@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
+import { NgForm } from '@angular/forms';
 
 import * as fromRoot from '../../app.reducer';
-import { NgForm } from '@angular/forms';
+import * as AuthActions from '../auth.actions';
 
 @Component({
   selector: 'app-register',
@@ -19,16 +20,13 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.isLoading$ = this.store.select(fromRoot.getIsLoading);
+    this.isLoading$ = this.store.select(fromRoot.getIsAuthLoading);
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
 
   onSubmit(form: NgForm) {
     console.log(form);
-    // this.authService.registerUser({
-    //   email: form.value.email,
-    //   password: form.value.password,
-    // });
+    this.store.dispatch(new AuthActions.Register({username: form.value.email, password: form.value.password}));
   }
 }

@@ -26,10 +26,10 @@ $skydive-iowa-app-theme: mat-light-theme($skydive-iowa-app-primary, $skydive-iow
 }
 
 .primaryBG {
-  background-color: mat-color($skydive-iowa-app-theme, primary);
+  background-color: mat-color($skydive-iowa-app-primary);
 }
 .accentBG {
-  background-color: mat-color($skydive-iowa-app-theme, accent);
+  background-color: mat-color($skydive-iowa-app-accent);
 }
 
 @import '../app/auth/register/register-theme.scss';
@@ -39,4 +39,4 @@ $skydive-iowa-app-theme: mat-light-theme($skydive-iowa-app-primary, $skydive-iow
 @include app-theme($skydive-iowa-app-theme);
 
 @import '../app/core/core.theme.scss';
-@include app-theme($skydive-iowa-app-theme);
+@include core-theme($skydive-iowa-app-theme);

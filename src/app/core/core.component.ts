@@ -12,9 +12,11 @@ import * as Core from './core.actions';
 })
 export class CoreComponent implements OnInit {
   showSidenav$: Observable<boolean>;
+  authenticated$: Observable<boolean>;
 
   constructor (private store: Store<fromRoot.State>) {
     this.showSidenav$ = this.store.select(fromRoot.getIsSidenavOpen);
+    this.authenticated$ = this.store.select(fromRoot.getIsAuthenticated);
   }
 
   onCloseSidenav() {

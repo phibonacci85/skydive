@@ -9,19 +9,22 @@
   <mat-divider></mat-divider>
   <h3 matSubheader>Notes</h3>
   <a mat-list-item
+    *ngIf="!authenticated"
     routerLink="/register"
     (click)="onCloseSidenav()">
     <mat-icon matListIcon>face</mat-icon>
     <h4 matLine>Register</h4>
   </a>
   <a mat-list-item
+    *ngIf="!authenticated"
     routerLink="/login"
     (click)="onCloseSidenav()">
     <mat-icon matListIcon>input</mat-icon>
     <h4 matLine>Login</h4>
   </a>
   <a mat-list-item
-    (click)="onCloseSidenav()">
+    *ngIf="authenticated"
+    (click)="onLogout()">
     <mat-icon matListIcon>eject</mat-icon>
     <h4 matLine>Logout</h4>
   </a>
