@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register-theme.scss', './register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   maxDate;

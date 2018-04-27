@@ -24,3 +24,19 @@ $skydive-iowa-app-theme: mat-light-theme($skydive-iowa-app-primary, $skydive-iow
 .skydive-iowa-theme {
   @include angular-material-theme($skydive-iowa-app-theme);
 }
+
+.primaryBG {
+  background-color: mat-color($skydive-iowa-app-theme, primary);
+}
+.accentBG {
+  background-color: mat-color($skydive-iowa-app-theme, accent);
+}
+
+@import '../app/auth/register/register-theme.scss';
+@include app-register-theme($skydive-iowa-app-theme);
+
+@import '../app/app.theme.scss';
+@include app-theme($skydive-iowa-app-theme);
+
+@import '../app/core/core.theme.scss';
+@include app-theme($skydive-iowa-app-theme);

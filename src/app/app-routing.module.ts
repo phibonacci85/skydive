@@ -7,12 +7,13 @@ import { ManifestComponent } from './manifest/manifest.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'manifest', component: ManifestComponent},
-  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent},
+  {path: '*', component: PageNotFoundComponent},
 ];
 
 @NgModule({

@@ -8,9 +8,9 @@
     role="navigation">
     <app-sidenav-list></app-sidenav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content fxLayout="column">
     <app-header></app-header>
-    <main>
+    <main fxFlex="grow">
       <router-outlet></router-outlet>
     </main>
   </mat-sidenav-content>

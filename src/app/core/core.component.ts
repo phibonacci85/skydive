@@ -8,7 +8,7 @@ import * as Core from './core.actions';
 @Component({
   selector: 'app-core',
   templateUrl: './core.component.html',
-  styleUrls: ['./core.component.css'],
+  styleUrls: ['./core.component.scss'],
 })
 export class CoreComponent implements OnInit {
   showSidenav$: Observable<boolean>;
