@@ -11,12 +11,14 @@ export interface State {
   token: string;
   authenticated: boolean;
   loading: boolean;
+  error: object;
 }
 
 const initialState: State = {
   token: null,
   authenticated: false,
   loading: false,
+  error: null,
 };
 
 export function authReducer(state = initialState, action: AuthActions) {
@@ -51,6 +53,7 @@ export function authReducer(state = initialState, action: AuthActions) {
         token: null,
         authenticated: false,
         loading: false,
+        error: null,
       };
     default:
       return state;

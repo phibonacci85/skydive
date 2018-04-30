@@ -8,6 +8,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import * as AuthActions from './auth.actions';
 import 'rxjs/add/operator/do';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class AuthEffects {
@@ -24,11 +25,13 @@ export class AuthEffects {
     })
     .switchMap((authData: { username: string, password: string }) => {
       return fromPromise(
-        this.afAuth.auth.createUserWithEmailAndPassword(authData.username,
-          authData.password));
+        this.afAuth.auth.createUserWithEmailAndPassword(
+          authData.username,
+          authData.password
+        ).catch(error => error));
     })
     .switchMap(() => {
-      return fromPromise(this.afAuth.auth.currentUser.getIdToken());
+      return fromPromise(this.afAuth.auth.currentUser.getIdToken().catch(error => error));
     })
     .mergeMap((token: string) => {
       this.router.navigate(['/manifest']).catch(error => console.log(error));
@@ -55,8 +58,10 @@ export class AuthEffects {
     })
     .switchMap((authData: { username: string, password: string }) => {
       return fromPromise(
-        this.afAuth.auth.signInWithEmailAndPassword(authData.username,
-          authData.password));
+        this.afAuth.auth.signInWithEmailAndPassword(
+          authData.username,
+          authData.password,
+        ).catch(error => of(error)));
     })
     .switchMap(() => {
       return fromPromise(this.afAuth.auth.currentUser.getIdToken());

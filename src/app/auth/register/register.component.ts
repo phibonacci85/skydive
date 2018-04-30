@@ -9,10 +9,12 @@ import * as AuthActions from '../auth.actions';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register-theme.scss', './register.component.scss']
+  styleUrls: [
+    './register-theme.scss',
+    './register.component.scss',
+  ],
 })
 export class RegisterComponent implements OnInit {
-  maxDate;
   isLoading$: Observable<boolean>;
 
   constructor(
@@ -21,12 +23,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading$ = this.store.select(fromRoot.getIsAuthLoading);
-    this.maxDate = new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
-    this.store.dispatch(new AuthActions.Register({username: form.value.email, password: form.value.password}));
+    this.store.dispatch(new AuthActions.Register({
+      username: form.value.email,
+      password: form.value.password,
+    }));
   }
 }
